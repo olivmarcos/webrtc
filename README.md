@@ -1,3 +1,3 @@
 # Webrtc
-A study in webrtc
+A study on WebRTC
 

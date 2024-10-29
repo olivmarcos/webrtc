@@ -91,13 +91,17 @@ export const useUserMedia = () => {
     )
   }, [devices])
 
-  const getUserPermission = useCallback(async () => {
-    const permission = await checkPermission();
-    if (!permission.video || !permission.audio) {
-      console.log("Requesting permission...");
-      requestPermission();
+  useEffect(() => {
+    const init = async () => {
+      const permission = await checkPermission()
+
+      if (!permission.audio || !permission.video) {
+        requestPermission()
+      }
     }
-  }, [checkPermission, requestPermission]); 
+
+    init()
+  }, [checkPermission, getDevices, requestPermission])
 
   useEffect(() => {
     const init = async () => {
@@ -126,7 +130,6 @@ export const useUserMedia = () => {
     outputDevices,
     accessGranted,
     checkPermission,
-    getUserPermission,
     getDevices,
     devices,
     updateUserMedia,

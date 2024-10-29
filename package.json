@@ -19,6 +19,8 @@
     "lucide-react": "^0.453.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-use-websocket": "^4.10.0",
+    "simple-peer": "^9.11.1",
     "tailwind-merge": "^2.5.4",
     "tailwindcss-animate": "^1.0.7"
   },
@@ -27,6 +29,7 @@
     "@types/node": "^22.7.9",
     "@types/react": "^18.3.11",
     "@types/react-dom": "^18.3.1",
+    "@types/simple-peer": "^9.11.8",
     "@vitejs/plugin-react-swc": "^3.5.0",
     "autoprefixer": "^10.4.20",
     "eslint": "^9.13.0",

@@ -15,9 +15,7 @@ export default function Room() {
   const peerRef: MutableRefObject<Peer.Instance | null> = useRef(null)
   const remoteRef = useRef<HTMLVideoElement | null>(null)
 
-  const { id: roomId } = useParams();
-
-  console.log({ roomId })
+  const { roomId } = useParams();
 
   const [me, setMe] = useState('')
   const [connected, setConnected] = useState(false)
@@ -147,11 +145,13 @@ export default function Room() {
   }, [activeStream])
 
   useEffect(() => {
+    console.log({ me, videoReady })
     if (videoReady && me) {
+      console.log('sending roomEnter')
       sendJsonMessage({ type: 'roomEnter', roomId, id: me })
     }
   }, [me, videoReady, roomId, sendJsonMessage])
-  
+
 
   return (
     <div className="w-screen h-screen flex flex-col items-center justify-center">
